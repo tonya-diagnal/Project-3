@@ -1,18 +1,17 @@
 import React from "react";
-import styles from "./MovieItem.module.css";
+import styles from "./MovieRailItem.module.css";
 import { useNavigate } from "react-router-dom";
 
-const MovieItem = ({ movie }) => {
+const MovieRailItem = ({ movie }) => {
     const navigate = useNavigate();
+    const movieItemClickHandler = () => {
+        navigate(`/movie/${movie.id}`);
+    };
     const imageErrorHandler = (event) => {
         event.target.src =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     };
-
-    const movieItemClickHandler = () => {
-        navigate(`/movie/${movie.id}`);
-    };
-
+    console.log("rail");
     return (
         <article className={styles.movieItem} onClick={movieItemClickHandler}>
             <img
@@ -29,4 +28,4 @@ const MovieItem = ({ movie }) => {
     );
 };
 
-export default MovieItem;
+export default MovieRailItem;
