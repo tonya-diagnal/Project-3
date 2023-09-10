@@ -104,6 +104,7 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+    column-gap: 0.8rem;
 }
 
 .trailer:hover {

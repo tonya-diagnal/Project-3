@@ -11,11 +11,12 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
+            { index: true, element: <MovieHome /> },
             {
                 path: "/trailer",
                 element: <MovieTrailerPage />,
             },
-            { index: true, element: <MovieHome /> },
+
             {
                 path: "movie/:movieId",
                 element: <MovieDetails />,
