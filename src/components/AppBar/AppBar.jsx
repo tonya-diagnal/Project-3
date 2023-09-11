@@ -31,7 +31,7 @@ const AppBar = () => {
     const searchSubmitHandler = (event) => {
         event.preventDefault();
         // console.log(event.target.search.value);
-        movieCtx.setSearchTerm(event.target.value);
+        // movieCtx.setSearchTerm(event.target.value);
         // navigate("/");
     };
     return (
@@ -51,6 +51,7 @@ const AppBar = () => {
                                     placeholder="Search..."
                                     onChange={searchTermChangeHandler}
                                     name="search"
+                                    value={movieCtx.searchTerm}
                                 />
                             </form>
                             <FaSearch
