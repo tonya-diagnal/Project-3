@@ -1,17 +1,21 @@
 .appbar {
     display: flex;
-    width: 100%;
+
     align-items: center;
     background-color: #000000;
     color: white;
     padding: 10px;
-    position: fixed;
-    top: 0;
-    justify-content: space-between;
-    /* flex-wrap: wrap; */
-    /* row-gap: 30px; */
+
+    justify-content: center;
     z-index: 20;
     height: 60px;
+    position: relative;
+}
+
+.appbarContainer {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .logo {
@@ -19,14 +23,18 @@
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
+    /* margin-left: auto; */
     /* flex-basis: 340px; */
     gap: 20px;
     flex: 0 0 auto;
     margin-right: 30px;
 }
-.logo img {
-    /* max-width: 100px; */
+/* .logo img {
     width: 150px;
+} */
+
+.logo img {
+    width: 20rem;
 }
 
 .logo:hover {
@@ -38,17 +46,27 @@
 
 .search {
     /* flex: 1; */
-    display: flex;
+    /* display: flex; */
+    width: 15rem;
+    /* margin-left: auto; */
+    /* margin-right: 0; */
+    /* justify-self: flex-end; */
     /* row-gap: 30px; */
     align-items: center;
+    position: absolute;
     /* min-width: 50px; */
-    flex-basis: 500px;
+    /* flex-basis: 400px; */
     justify-content: flex-end;
-    flex: intial;
+    /* flex: intial; */
     gap: 10px;
-    position: relative;
+    position: absolute;
+    /* margin-right: 3rem; */
+    right: 30px;
+    flex-grow: 0;
 }
-
+.search form {
+    width: 100%;
+}
 .search input {
     /* width: 100%; */
     /* max-width: 400px; */
@@ -69,12 +87,12 @@
     /* top: 50%; */
     /* translate: (0, -50%); */
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .appbar {
         flex-direction: column;
         gap: 10px;
         height: auto;
-        /* justify-content: flex-start */
+        
         align-items: flex-start;
     }
 
@@ -82,17 +100,13 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        /* flex-shrink: 0; */
-        /* flex-basis: 340px; */
         gap: 20px;
-        /* flex: 0 0 auto; */
         margin-right: 30px;
-        /* flex-wrap: wrap; */
+
         flex: 1 1;
     }
 
     .search {
-        /* flex-basis: 100%; */
         min-width: 100%;
         justify-content: center;
         max-height: 50px;
@@ -101,16 +115,6 @@
 
     .search input {
         width: 100%;
-        /* max-width: 400px; */
-        /* flex-basis: 400px;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        margin-right: 10px; 
-        min-width: 100px;
-        flex: 1;
-        height: 34px;
-        font-size: 15px; */
         flex: 1;
     }
-}
+} */

@@ -4,6 +4,7 @@ import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import MovieRailItem from "../MovieRailItem/MovieRailItem";
 import styles from "./MovieRecomendation.module.css";
+import MovieItem from "../MovieItem/MovieItem";
 
 const MovieRecommendation = ({ genres, title }) => {
     const [showLeftArrow, setShowLeftArrow] = useState(true);
@@ -97,7 +98,8 @@ const MovieRecommendation = ({ genres, title }) => {
                 <div className={isHover ? styles.innerRailContainer : null}>
                     <div className={styles.rail} ref={ref}>
                         {moviesToRecommend.map((movie) => (
-                            <MovieRailItem movie={movie} key={movie.id} />
+                            // <MovieRailItem movie={movie} key={movie.id} />
+                            <MovieItem movie={movie} key={movie.id} />
                         ))}
                     </div>
                 </div>

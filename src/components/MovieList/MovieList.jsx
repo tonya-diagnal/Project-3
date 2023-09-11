@@ -16,10 +16,12 @@ const MovieList = () => {
         movie.title.toLowerCase().includes(movieCtx.searchTerm.toLowerCase())
     );
     return (
-        <div className={styles.movieList}>
-            {filteredMovieList.map((movie) => (
-                <MovieItem movie={movie} key={movie.id} />
-            ))}
+        <div className={styles.movieListContainer}>
+            <div className={styles.movieList}>
+                {filteredMovieList.map((movie) => (
+                    <MovieItem movie={movie} key={movie.id} />
+                ))}
+            </div>
         </div>
     );
 };
