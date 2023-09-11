@@ -11,6 +11,7 @@
     gap: 10px;
     width: 13.7rem;
     flex-shrink: 0;
+    margin: auto;
 }
 
 .movieItem img {

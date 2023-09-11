@@ -22,6 +22,9 @@ const AppBar = () => {
     };
 
     const backButtonHandler = () => {
+        if (location.pathname.includes("/trailer")) {
+            navigate("/movie/");
+        }
         navigate("/");
     };
 
@@ -57,7 +60,8 @@ const AppBar = () => {
                             />
                         </div>
                     )}
-                    {location.pathname.includes("/movie/") && (
+                    {(location.pathname.includes("/movie/") ||
+                        location.pathname.includes("/trailer")) && (
                         <div
                             className={classes.back}
                             onClick={backButtonHandler}
