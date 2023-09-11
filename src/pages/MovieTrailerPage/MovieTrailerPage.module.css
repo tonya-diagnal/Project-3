@@ -14,8 +14,8 @@
 }
 
 .container video {
-    width: auto;
-    max-height: 70%;
+    width: 960px;
+    max-height: 540px;
 }
 
 .container h1 {
