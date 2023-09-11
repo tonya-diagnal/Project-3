@@ -3,17 +3,24 @@
     flex-direction: column;
     background-color: black;
     height: 92vh;
-    gap: 100px;
+    gap: 2rem;
     /* justify-content: center; */
+
     align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
 }
 
-/* .container video {
-    Fmargin-top: 30px; 
-} */
+.container video {
+    width: auto;
+    max-height: 70%;
+}
 
 .container h1 {
+    /* margin-right: auto; */
     margin-top: 50px;
     font-size: 60px;
-    color: #3498db;
+    color: #ffee66;
 }

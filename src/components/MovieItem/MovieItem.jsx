@@ -22,8 +22,14 @@ const MovieItem = ({ movie }) => {
             ></img>
             <div className={styles.details}>
                 <h3>{movie.title}</h3>
-                <p>{movie.year}</p>
-                <div className={styles.genres}>{movie.genres.join(", ")}</div>
+                <div className={styles.info}>
+                    <p>{movie.year}</p>
+                    <span>|</span>
+                    <p>{movie.runtime}</p>
+                    <span>|</span>
+                    <p>{movie.genres[0]}</p>
+                </div>
+                {/* <div className={styles.genres}>{movie.genres.join(", ")}</div> */}
             </div>
         </article>
     );

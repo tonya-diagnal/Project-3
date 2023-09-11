@@ -1,34 +1,59 @@
 .movieItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  background-color: #333;
-  border-radius: 10px;
-  gap: 10px;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    /* background-color: #333; */
+    border-radius: 3px;
+    /* border-bottom-right-radius: ; */
+    overflow: hidden;
+    gap: 10px;
+    width: 13.7rem;
+    flex-shrink: 0;
+    margin: auto;
 }
 
 .movieItem img {
-  width: 100%;
-  aspect-ratio: 2/3;
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-bottom-left-radius: 0px;
 }
 
 .details {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-  padding: 0px 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    padding: 0px 10px;
+    width: 100%;
+    padding-bottom: 1rem;
 }
 
 .details h3 {
-  text-align: center;
+    width: 100%;
+    font-size: 1.1rem;
+    /* text-align: center; */
+    overflow: hidden;
+    color: #ffee66;
+    max-height: 2.56rem;
+    overflow: hidden;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    font-weight: 500;
+    font-size: 0.8rem;
+    /* color: #e8e1ae; */
 }
 
 .movieItem:hover {
-  transform: scale(1.003);
-  box-shadow: 0 0 30px rgba(114, 112, 112, 0.2);
+    /* transform: scale(1.003); */
+    /* box-shadow: 0 10px px rgba(200, 206, 16, 1); */
+    /* border-bottom: 2px solid #ffee66; */
+    box-shadow: inset 0 -5px 1px 0px #ffee66;
+    /* clip-path: inset(0px 1px 0px 1px); */
 }

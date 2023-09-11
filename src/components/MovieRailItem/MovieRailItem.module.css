@@ -4,16 +4,21 @@
     align-items: center;
     cursor: pointer;
     border: none;
-    background-color: #333;
-    border-radius: 10px;
+    /* background-color: #333; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 1rem rgba(256, 256, 256 ,0.2); */
     gap: 10px;
     overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.2s;
 }
 
 .movieItem img {
     /* width: 100%; */
     width: 200px;
     aspect-ratio: 2/3;
+    /* z-index: -1; */
+    /* margin-top: 1px; */
 }
 
 .details {
@@ -29,7 +34,4 @@
     text-align: center;
 }
 
-.movieItem:hover {
-    transform: scale(1.003);
-    box-shadow: 0 0 30px rgba(114, 112, 112, 0.2);
-}
+
