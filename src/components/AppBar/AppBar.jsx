@@ -5,6 +5,7 @@ import diagnalLogo2 from "../../assets/Diagnal-Logo-new.png";
 import MovieContext from "../../store/context/movie-context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { BiArrowBack } from "react-icons/bi";
 
 const AppBar = () => {
     const location = useLocation();
@@ -17,6 +18,10 @@ const AppBar = () => {
     //     movieCtx.setSearchTerm("");
     // }, []);
     const logoClickHandler = () => {
+        navigate("/");
+    };
+
+    const backButtonHandler = () => {
         navigate("/");
     };
 
@@ -50,6 +55,15 @@ const AppBar = () => {
                                 color="black"
                                 size={20}
                             />
+                        </div>
+                    )}
+                    {location.pathname.includes("/movie/") && (
+                        <div
+                            className={classes.back}
+                            onClick={backButtonHandler}
+                        >
+                            <BiArrowBack size={20} />
+                            <span>Back</span>
                         </div>
                     )}
                 </div>
