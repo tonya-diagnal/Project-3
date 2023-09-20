@@ -1,9 +1,14 @@
 .movieList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 2.5em;
-  padding-top: 20px;
-  margin: auto;
-  /* padding: 70px; */
-  width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2.5em;
+    padding-top: 20px;
+    margin: auto;
+    /* padding: 70px; */
+    width: 90%;
+    /* background-color: black; */
+}
+
+.movieListContainer {
+    background-color: black;
 }

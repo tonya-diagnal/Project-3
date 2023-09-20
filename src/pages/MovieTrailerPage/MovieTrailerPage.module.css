@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 92vh;
+    gap: 2rem;
+    /* justify-content: center; */
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.container video {
+    width: 960px;
+    max-height: 540px;
+}
+
+.container h1 {
+    /* margin-right: auto; */
+    margin-top: 50px;
+    font-size: 60px;
+    color: #ffee66;
+}
