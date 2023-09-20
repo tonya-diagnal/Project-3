@@ -1,29 +1,41 @@
-import React, { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import MovieRecommendation from "../MovieRecommendation/MovieRecommendation";
 import { useNavigate } from "react-router-dom";
 import classes from "./MovieDetails-new.module.css";
 import { getPalette } from "../../utils/colorthief/colorthief";
 import { FaPlay } from "react-icons/fa";
+import { RootState } from "../../store/store";
 
 const MovieDetails = () => {
-    const [imageColour, setImageColour] = useState("rgb(0,0,0)");
+    type imageColourType = `rgb(${number},${number},${number})`;
+    const [imageColour, setImageColour] =
+        useState<imageColourType>("rgb(0,0,0)");
     const navigate = useNavigate();
     let { movieId } = useParams();
-    const movie = useSelector((state) =>
-        state.movieList.movies.find((movie) => movie.id === +movieId)
+    // console.log(typeof movieId, movieId);
+    movieId = movieId ?? "0";
+    const movieIdValue = typeof +movieId === "number" ? +movieId : 0;
+    const movie = useSelector((state: RootState) =>
+        state.movieList.movies.find((movie) => movie.id === movieIdValue)
     );
+
     movie &&
         getPalette(movie.posterUrl).then((value) => {
-            console.log(
-                `radial-gradient(circle, rgb(${value.toString()}) 0%,rgb(0,0,0) 100%)`
+            // console.log(
+            //     `radial-gradient(circle, rgb(${value.toString()}) 0%,rgb(0,0,0) 100%)`
+            // );
+            // console.log(`rgb(${value[0]},${value[1]},${value[2]})`);
+            setImageColour(
+                `rgb(${value[0]},${value[1]},${value[2]})` as imageColourType
             );
-            setImageColour(`rgb(${value.toString()})`);
         });
 
-    const imageErrorHandler = (event) => {
-        event.target.src =
+    const imageErrorHandler = (
+        event: SyntheticEvent<HTMLImageElement, Event>
+    ) => {
+        event.currentTarget.src =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     };
 
@@ -31,6 +43,7 @@ const MovieDetails = () => {
         navigate("/trailer");
     };
 
+    // console.log(movie?.genres);
     return (
         <>
             {movie && (
@@ -38,7 +51,6 @@ const MovieDetails = () => {
                     <div
                         className={classes.movieContainer}
                         style={{
-                            background: "rgb(0,0,0)",
                             background: `linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 15%,${imageColour} 70%, rgba(0,0,0,1) 100%`,
                             transition: "all 2s",
                         }}
@@ -56,7 +68,7 @@ const MovieDetails = () => {
                                 <div>
                                     <p>
                                         {Math.trunc(+movie.runtime / 60)} hr{" "}
-                                        {movie.runtime -
+                                        {+movie.runtime -
                                             60 *
                                                 Math.trunc(
                                                     +movie.runtime / 60

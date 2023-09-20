@@ -1,18 +1,20 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import classes from "./AppBar.module.css";
-import diagnalLogo from "../../assets/Diagnal-logo.svg";
 import diagnalLogo2 from "../../assets/Diagnal-Logo-new.png";
 import MovieContext from "../../store/context/movie-context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
+import { SyntheticEvent } from "react";
 
 const AppBar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const movieCtx = useContext(MovieContext);
-    const searchTermChangeHandler = (event) => {
-        movieCtx.setSearchTerm(event.target.value);
+    const searchTermChangeHandler = (
+        event: SyntheticEvent<HTMLInputElement, Event>
+    ) => {
+        movieCtx.setSearchTerm(event.currentTarget.value);
     };
     // useEffect(() => {
     //     movieCtx.setSearchTerm("");
@@ -22,18 +24,20 @@ const AppBar = () => {
     };
 
     const backButtonHandler = () => {
-        if (location.pathname.includes("/trailer")) {
-            navigate("/movie/");
-        }
-        navigate("/");
+        // if (location.pathname.includes("/trailer")) {
+        //     navigate("/movie/");
+        // }
+        // navigate("/");
+        navigate(-1);
     };
 
-    const searchSubmitHandler = (event) => {
-        event.preventDefault();
-        // console.log(event.target.search.value);
-        // movieCtx.setSearchTerm(event.target.value);
-        // navigate("/");
-    };
+    // const searchSubmitHandler = (event) => {
+    //     event.preventDefault();
+    //     console.log(event.target.search.value);
+    //     movieCtx.setSearchTerm(event.target.value);
+    //     navigate("/");
+    // };
+
     return (
         <header>
             <div className={classes.appbarContainer}>
@@ -44,7 +48,7 @@ const AppBar = () => {
                     </div>
                     {location.pathname === "/" && (
                         <div className={classes.search}>
-                            <form onSubmit={searchSubmitHandler}>
+                            <form /*onSubmit={searchSubmitHandler}*/>
                                 <input
                                     id="input"
                                     type="text"

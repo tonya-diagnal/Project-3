@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./MovieTrailerPage.module.css";
 const MovieTrailerPage = () => {
     const src =
@@ -13,7 +12,7 @@ const MovieTrailerPage = () => {
                     width="960px"
                     height="540px"
                 />
-                Video cant be played
+                Video Error
             </video>
         </div>
     );

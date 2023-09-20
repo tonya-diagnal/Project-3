@@ -1,11 +1,14 @@
-import React from "react";
 import styles from "./MovieItem.module.css";
 import { useNavigate } from "react-router-dom";
+import { SyntheticEvent } from "react";
+import { MovieItemType } from "../../store/movieList/movieListClass";
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie }: { movie: MovieItemType }) => {
     const navigate = useNavigate();
-    const imageErrorHandler = (event) => {
-        event.target.src =
+    const imageErrorHandler = (
+        event: SyntheticEvent<HTMLImageElement, Event>
+    ) => {
+        event.currentTarget.src =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png";
     };
 
@@ -29,7 +32,6 @@ const MovieItem = ({ movie }) => {
                     <span>|</span>
                     <p>{movie.genres[0]}</p>
                 </div>
-                {/* <div className={styles.genres}>{movie.genres.join(", ")}</div> */}
             </div>
         </article>
     );

@@ -1,16 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import MovieItem from "../MovieItem/MovieItem";
 import styles from "./MovieList.module.css";
 import { useSelector } from "react-redux";
 import MovieContext from "../../store/context/movie-context";
+import { RootState } from "../../store/store";
 
 const MovieList = () => {
-    const movieList = useSelector((state) => state.movieList.movies);
+    const movieList = useSelector((state: RootState) => state.movieList.movies);
     const movieCtx = useContext(MovieContext);
-    console.log(movieCtx.searchTerm);
-    useEffect(() => {
-        console.log(movieList);
-    }, [movieList]);
+    // console.log(movieCtx.searchTerm);
+    // console.log(movieList);
+    // useEffect(() => {
+    //     console.log(movieList);
+    // }, [movieList]);
 
     const filteredMovieList = movieList.filter((movie) =>
         movie.title.toLowerCase().includes(movieCtx.searchTerm.toLowerCase())

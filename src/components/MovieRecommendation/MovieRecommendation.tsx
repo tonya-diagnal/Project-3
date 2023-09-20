@@ -1,49 +1,67 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
-
 import { useSelector } from "react-redux";
-import MovieRailItem from "../MovieRailItem/MovieRailItem";
 import styles from "./MovieRecomendation.module.css";
 import MovieItem from "../MovieItem/MovieItem";
+import { GenreType, MovieItemType } from "../../store/movieList/movieListClass";
+import { RootState } from "../../store/store";
 
-const MovieRecommendation = ({ genres, title }) => {
+enum scrollDirectionType {
+    "left",
+    "right",
+}
+
+const MovieRecommendation = ({
+    genres,
+    title,
+}: {
+    genres: GenreType[];
+    title: string;
+}) => {
     const [showLeftArrow, setShowLeftArrow] = useState(true);
     const [showRightArrow, setShowRightArrow] = useState(true);
     const [isHover, setIsHover] = useState(false);
-    const ref = useRef();
-    const movieList = useSelector((state) => state.movieList.movies);
-    const moviesToRecommend = [];
-    console.log(movieList);
+
+    const divRef = useRef<HTMLDivElement>(null);
+
+    const movieList = useSelector((state: RootState) => state.movieList.movies);
+    const moviesToRecommend = [] as MovieItemType[];
+
     let i = 0;
     let flag = true;
-    const set = new Set();
+    const set = new Set<string>();
     set.add(title);
+    // useEffect(() => {
+    //     if (!divRef.current) throw Error("divRef is not assigned");
+    // });
 
-    const railScrollHandler = (dir) => {
-        if (ref.current.scrollLeft === 0) {
-            console.log("scroll start");
-            setShowLeftArrow(false);
-        } else {
-            setShowLeftArrow(true);
-        }
-        if (
-            Math.abs(ref.current.scrollLeft) >=
-            ref.current.scrollWidth - ref.current.clientWidth - 3
-        ) {
-            console.log("scroll end");
-            setShowRightArrow(false);
-        } else {
-            setShowRightArrow(true);
-        }
-        if (dir === "l") {
-            ref.current.scrollLeft -= 300;
-            setShowRightArrow(true);
-        } else {
-            setShowLeftArrow(true);
-            ref.current.scrollLeft += 300;
+    const railScrollHandler = (direction: scrollDirectionType) => {
+        if (divRef.current) {
+            if (divRef.current.scrollLeft <= 10) {
+                console.log("scroll start");
+                setShowLeftArrow(false);
+            } else {
+                setShowLeftArrow(true);
+            }
+            if (
+                Math.abs(divRef.current.scrollLeft) >=
+                divRef.current.scrollWidth - divRef.current.clientWidth - 3
+            ) {
+                console.log("scroll end");
+                setShowRightArrow(false);
+            } else {
+                setShowRightArrow(true);
+            }
+            if (direction === scrollDirectionType.left) {
+                divRef.current.scrollLeft -= 300;
+                setShowRightArrow(true);
+            } else {
+                setShowLeftArrow(true);
+                divRef.current.scrollLeft += 300;
+            }
         }
     };
-    // console.log(genres);
+
     movieList &&
         genres &&
         movieList.forEach((movie) => {
@@ -63,10 +81,10 @@ const MovieRecommendation = ({ genres, title }) => {
                 }
             }
         });
-    console.log(moviesToRecommend);
+    // console.log(moviesToRecommend);
     // const arr = [0, 1, 2];
-    const rmovies = [movieList[0], movieList[1]];
-    console.log(rmovies);
+    // const rmovies = [movieList[0], movieList[1]];
+    // console.log(rmovies);
     //    {moviesToRecommend.forEach((movie) => {
     //                 <MovieRailItem movie={movie} />;
     //                 console.log(movie);
@@ -87,16 +105,20 @@ const MovieRecommendation = ({ genres, title }) => {
                 onMouseOver={mouseOverHandler}
                 onMouseLeave={mouseLeaveHandler}
             >
-                {showLeftArrow && (
+                {showLeftArrow && isHover && (
                     <button
                         className={styles.leftButton}
-                        onClick={() => railScrollHandler("l")}
+                        onClick={() =>
+                            railScrollHandler(scrollDirectionType.left)
+                        }
                     >
                         <AiOutlineLeftCircle size={35} />
                     </button>
                 )}
-                <div className={isHover ? styles.innerRailContainer : null}>
-                    <div className={styles.rail} ref={ref}>
+                <div
+                    className={isHover ? styles.innerRailContainer : undefined}
+                >
+                    <div className={styles.rail} ref={divRef}>
                         {moviesToRecommend.map((movie) => (
                             // <MovieRailItem movie={movie} key={movie.id} />
                             <MovieItem movie={movie} key={movie.id} />
@@ -105,8 +127,10 @@ const MovieRecommendation = ({ genres, title }) => {
                 </div>
                 {showRightArrow && isHover && (
                     <button
-                        className={isHover ? styles.rightButton : null}
-                        onClick={() => railScrollHandler("r")}
+                        className={isHover ? styles.rightButton : undefined}
+                        onClick={() =>
+                            railScrollHandler(scrollDirectionType.right)
+                        }
                     >
                         <AiOutlineRightCircle size={35} />
                     </button>
