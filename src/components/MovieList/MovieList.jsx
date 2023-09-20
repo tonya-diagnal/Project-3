@@ -1,29 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
+import db from "../../assets/db.json";
 import MovieItem from "../MovieItem/MovieItem";
 import styles from "./MovieList.module.css";
 import { useSelector } from "react-redux";
-import MovieContext from "../../store/context/movie-context";
 
 const MovieList = () => {
-    const movieList = useSelector((state) => state.movieList.movies);
-    const movieCtx = useContext(MovieContext);
-    console.log(movieCtx.searchTerm);
-    useEffect(() => {
-        console.log(movieList);
-    }, [movieList]);
+  const movieList = useSelector((state) => state.movieList.movies);
 
-    const filteredMovieList = movieList.filter((movie) =>
-        movie.title.toLowerCase().includes(movieCtx.searchTerm.toLowerCase())
-    );
-    return (
-        <div className={styles.movieListContainer}>
-            <div className={styles.movieList}>
-                {filteredMovieList.map((movie) => (
-                    <MovieItem movie={movie} key={movie.id} />
-                ))}
-            </div>
-        </div>
-    );
+  useEffect(() => {
+    console.log(movieList);
+  }, [movieList]);
+
+  return (
+    <div className={styles.movieList}>
+      {movieList.map((movie) => (
+        <MovieItem movie={movie} key={movie.id} />
+      ))}
+    </div>
+  );
 };
 
 export default MovieList;
