@@ -39,6 +39,8 @@
     color: #ffee66;
     max-height: 2.56rem;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .info {

@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/RootLayout/RootLayout";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import MovieHome from "./pages/MovieHome/MovieHome";
-// import MovieDetails from "./components/MovieDetails/MovieDetails";
 import MovieTrailerPage from "./pages/MovieTrailerPage/MovieTrailerPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
 
