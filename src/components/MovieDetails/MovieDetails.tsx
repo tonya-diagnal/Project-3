@@ -23,10 +23,6 @@ const MovieDetails = () => {
 
     movie &&
         getPalette(movie.posterUrl).then((value) => {
-            // console.log(
-            //     `radial-gradient(circle, rgb(${value.toString()}) 0%,rgb(0,0,0) 100%)`
-            // );
-            // console.log(`rgb(${value[0]},${value[1]},${value[2]})`);
             setImageColour(
                 `rgb(${value[0]},${value[1]},${value[2]})` as imageColourType
             );
@@ -43,7 +39,6 @@ const MovieDetails = () => {
         navigate("/trailer");
     };
 
-    // console.log(movie?.genres);
     return (
         <>
             {movie && (

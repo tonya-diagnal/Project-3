@@ -81,14 +81,7 @@ const MovieRecommendation = ({
                 }
             }
         });
-    // console.log(moviesToRecommend);
-    // const arr = [0, 1, 2];
-    // const rmovies = [movieList[0], movieList[1]];
-    // console.log(rmovies);
-    //    {moviesToRecommend.forEach((movie) => {
-    //                 <MovieRailItem movie={movie} />;
-    //                 console.log(movie);
-    //             })} */}
+
     const mouseOverHandler = () => {
         setIsHover(true);
     };
@@ -136,10 +129,6 @@ const MovieRecommendation = ({
                     </button>
                 )}
             </div>
-
-            {/* {rmovies.map((movie) => {
-                <MovieRailItem movie={movie} key={movie.id} />;
-            })} */}
         </div>
     );
 };
