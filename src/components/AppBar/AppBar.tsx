@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import classes from "./AppBar.module.css";
 import diagnalLogo2 from "../../assets/Diagnal-Logo-new.png";
 import MovieContext from "../../store/context/movie-context";
@@ -11,6 +11,7 @@ const AppBar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const movieCtx = useContext(MovieContext);
+    const [showMobileSearchBar, setShowMobileSearchBar] = useState(false);
     const searchTermChangeHandler = (
         event: SyntheticEvent<HTMLInputElement, Event>
     ) => {
@@ -25,6 +26,10 @@ const AppBar = () => {
         navigate(-1);
     };
 
+    const mobileSearchBarHandler = () => {
+        setShowMobileSearchBar((data) => !data);
+    };
+
     return (
         <header>
             <div className={classes.appbarContainer}>
@@ -34,23 +39,35 @@ const AppBar = () => {
                         {/* <h1>DIAGNAL MOVIES</h1> */}
                     </div>
                     {location.pathname === "/" && (
-                        <div className={classes.search}>
-                            {/* <form onSubmit={searchSubmitHandler}> */}
-                            <input
-                                id="input"
-                                type="text"
-                                placeholder="Search..."
-                                onChange={searchTermChangeHandler}
-                                name="search"
-                                value={movieCtx.searchTerm}
-                            />
-                            {/* </form> */}
-                            <FaSearch
-                                className={classes.searchIcon}
-                                color="black"
-                                size={20}
-                            />
-                        </div>
+                        <>
+                            <div className={classes.searchBar}>
+                                {/* <form onSubmit={searchSubmitHandler}> */}
+                                <input
+                                    id="input"
+                                    type="text"
+                                    placeholder="Search..."
+                                    onChange={searchTermChangeHandler}
+                                    name="search"
+                                    value={movieCtx.searchTerm}
+                                />
+                                {/* </form> */}
+                                <FaSearch
+                                    className={classes.searchIcon}
+                                    color="black"
+                                    size={20}
+                                />
+                            </div>
+                            <div
+                                className={classes.searchButton}
+                                onClick={mobileSearchBarHandler}
+                            >
+                                <FaSearch
+                                    className={classes.searchIconButton}
+                                    // color="white"
+                                    size={20}
+                                />
+                            </div>
+                        </>
                     )}
                     {(location.pathname.includes("/movie/") ||
                         location.pathname.includes("/trailer")) && (
