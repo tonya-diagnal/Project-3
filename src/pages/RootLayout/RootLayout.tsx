@@ -5,7 +5,9 @@ import styles from "./RootLayout.module.css";
 // import { useDispatch } from "react-redux";
 import { fetchMovieList } from "../../store/movieList/movieActions";
 import MovieProvider from "../../store/context/MovieProvider";
+
 import { useMovieDispatch } from "../../store/store";
+import UIProvider from "../../store/context/UI-Context/UI-Provider";
 
 const RootLayout = () => {
     // const dispatch = useDispatch();
@@ -22,10 +24,12 @@ const RootLayout = () => {
 
     return (
         <MovieProvider>
-            <AppBar />
-            <div className={styles.container}>
-                <Outlet />
-            </div>
+            <UIProvider>
+                <AppBar />
+                <div className={styles.container}>
+                    <Outlet />
+                </div>
+            </UIProvider>
         </MovieProvider>
     );
 };
