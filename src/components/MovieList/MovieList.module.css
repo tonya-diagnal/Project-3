@@ -9,12 +9,17 @@
     column-gap: 2em;
     padding-top: 20px;
     margin: auto;
-
-    /* padding: 70px; */
     width: 90%;
-    /* background-color: black; */
 }
 
 .movieListContainer {
     background-color: black;
+}
+
+.notFound {
+    color: white;
+    font-size: 3rem;
+    /* text-align: center; */
+    margin: 0 auto;
+    margin-top: 4rem;
 }
