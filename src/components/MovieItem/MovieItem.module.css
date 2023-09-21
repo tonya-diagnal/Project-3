@@ -13,7 +13,7 @@
     flex-shrink: 0;
     /* margin: auto; */
     flex-grow: 1;
-    max-width: 15rem;
+    max-width: 16rem;
 }
 
 .movieItem img {
