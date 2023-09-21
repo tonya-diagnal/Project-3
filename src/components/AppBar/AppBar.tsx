@@ -16,27 +16,14 @@ const AppBar = () => {
     ) => {
         movieCtx.setSearchTerm(event.currentTarget.value);
     };
-    // useEffect(() => {
-    //     movieCtx.setSearchTerm("");
-    // }, []);
+
     const logoClickHandler = () => {
         navigate("/");
     };
 
     const backButtonHandler = () => {
-        // if (location.pathname.includes("/trailer")) {
-        //     navigate("/movie/");
-        // }
-        // navigate("/");
         navigate(-1);
     };
-
-    // const searchSubmitHandler = (event) => {
-    //     event.preventDefault();
-    //     console.log(event.target.search.value);
-    //     movieCtx.setSearchTerm(event.target.value);
-    //     navigate("/");
-    // };
 
     return (
         <header>
@@ -48,16 +35,16 @@ const AppBar = () => {
                     </div>
                     {location.pathname === "/" && (
                         <div className={classes.search}>
-                            <form /*onSubmit={searchSubmitHandler}*/>
-                                <input
-                                    id="input"
-                                    type="text"
-                                    placeholder="Search..."
-                                    onChange={searchTermChangeHandler}
-                                    name="search"
-                                    value={movieCtx.searchTerm}
-                                />
-                            </form>
+                            {/* <form onSubmit={searchSubmitHandler}> */}
+                            <input
+                                id="input"
+                                type="text"
+                                placeholder="Search..."
+                                onChange={searchTermChangeHandler}
+                                name="search"
+                                value={movieCtx.searchTerm}
+                            />
+                            {/* </form> */}
                             <FaSearch
                                 className={classes.searchIcon}
                                 color="black"

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import MovieRecommendation from "../MovieRecommendation/MovieRecommendation";
 import { useNavigate } from "react-router-dom";
-import classes from "./MovieDetails-new.module.css";
+import classes from "./MovieDetails.module.css";
 import { getPalette } from "../../utils/colorthief/colorthief";
 import { FaPlay } from "react-icons/fa";
 import { RootState } from "../../store/store";
