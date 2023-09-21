@@ -4,9 +4,6 @@
     align-items: center;
     cursor: pointer;
     border: none;
-    /* background-color: #333; */
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 1rem rgba(256, 256, 256 ,0.2); */
     gap: 10px;
     overflow: hidden;
     flex-shrink: 0;
@@ -33,5 +30,3 @@
 .details h3 {
     text-align: center;
 }
-
-

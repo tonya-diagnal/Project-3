@@ -1,0 +1,21 @@
+.searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 100px;
+    height: 34px;
+    font-size: 15px;
+    display: none;
+}
+
+@media screen and (max-width: 770px) {
+    .searchBar input {
+        display: block;
+    }
+}
