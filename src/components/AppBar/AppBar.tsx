@@ -20,6 +20,7 @@ const AppBar = () => {
     };
 
     const logoClickHandler = () => {
+        movieCtx.setSearchTerm("");
         navigate("/");
     };
 
