@@ -12,6 +12,7 @@
     width: 13.7rem;
     flex-shrink: 0;
     margin: auto;
+    flex-grow: 1;
 }
 
 .movieItem img {
