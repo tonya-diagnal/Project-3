@@ -11,8 +11,9 @@
     gap: 10px;
     width: 13.7rem;
     flex-shrink: 0;
-    margin: auto;
+    /* margin: auto; */
     flex-grow: 1;
+    max-width: 15rem;
 }
 
 .movieItem img {
