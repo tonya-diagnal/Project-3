@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import classes from "./AppBar.module.css";
 import diagnalLogo2 from "../../assets/Diagnal-Logo-new.png";
 import MovieContext from "../../store/context/movie-context";
@@ -6,12 +6,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
 import { SyntheticEvent } from "react";
+import UIContext from "../../store/context/UI-Context/UI-context";
 
 const AppBar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const movieCtx = useContext(MovieContext);
-    const [showMobileSearchBar, setShowMobileSearchBar] = useState(false);
+    const uiCtx = useContext(UIContext);
     const searchTermChangeHandler = (
         event: SyntheticEvent<HTMLInputElement, Event>
     ) => {
@@ -26,8 +27,10 @@ const AppBar = () => {
         navigate(-1);
     };
 
-    const mobileSearchBarHandler = () => {
-        setShowMobileSearchBar((data) => !data);
+    const mobileSearchBarHandler = (
+        _1: SyntheticEvent<HTMLDivElement, Event>
+    ) => {
+        uiCtx.toggleMobileSearchBar();
     };
 
     return (
@@ -43,7 +46,7 @@ const AppBar = () => {
                             <div className={classes.searchBar}>
                                 {/* <form onSubmit={searchSubmitHandler}> */}
                                 <input
-                                    id="input"
+                                    id="search-input"
                                     type="text"
                                     placeholder="Search..."
                                     onChange={searchTermChangeHandler}
