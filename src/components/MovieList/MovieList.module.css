@@ -1,12 +1,12 @@
 .movieList {
-    /* display: grid;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2.5em;
-    justify-self: stretch; */
-    display: flex;
+    justify-self: stretch;
+    /* display: flex;
     row-gap: 3em;
     flex-wrap: wrap;
-    column-gap: 2em;
+    column-gap: 2em; */
     padding-top: 20px;
     margin: auto;
     width: 90%;
