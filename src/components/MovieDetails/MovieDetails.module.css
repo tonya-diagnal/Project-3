@@ -114,7 +114,7 @@
         /* height: auto; */
     }
     .titleImage {
-        width: 95%;
+        width: 60%;
         align-self: center;
     }
 
@@ -130,5 +130,9 @@
 @media screen and (max-width: 450px) {
     .movieDetails h1 {
         font-size: 3.5rem;
+    }
+    .titleImage {
+        width: 100%;
+        align-self: center;
     }
 }
