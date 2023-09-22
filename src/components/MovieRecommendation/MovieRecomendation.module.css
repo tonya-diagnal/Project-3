@@ -24,7 +24,7 @@
     width: 30px;
     background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     /* transition: background 3s ease; */
 }
 
@@ -35,7 +35,7 @@
     background: linear-gradient(to left, black 0%, rgba(0, 0, 0, 0) 100%);
     /* background-color: #ffee66; */
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     right: 0;
     top: 0;
 }
@@ -61,7 +61,7 @@
     background-color: black;
     border: none;
     border-radius: 500px;
-    z-index: 20;
+    z-index: 3;
     width: 40px;
     height: 40px;
 }
@@ -79,7 +79,7 @@
     background-color: black;
     border: none;
     border-radius: 500px;
-    z-index: 20;
+    z-index: 3;
     width: 40px;
     height: 40px;
 }

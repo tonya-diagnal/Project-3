@@ -117,7 +117,8 @@ const MovieDetails = () => {
                         {/* <div onClick={scrollToTop}> */}
                         <MovieRecommendation
                             genres={movie.genres}
-                            title={movie.title}
+                            currentMovieTitle={movie.title}
+                            heading="Watch similar movies"
                         />
                         {/* </div> */}
                     </div>

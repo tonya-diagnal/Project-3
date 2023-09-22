@@ -13,10 +13,12 @@ enum scrollDirectionType {
 
 const MovieRecommendation = ({
     genres,
-    title,
+    currentMovieTitle,
+    heading,
 }: {
     genres: GenreType[];
-    title: string;
+    currentMovieTitle: string;
+    heading: string;
 }) => {
     const [showLeftArrow, setShowLeftArrow] = useState(true);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -30,7 +32,7 @@ const MovieRecommendation = ({
     let i = 0;
     let flag = true;
     const set = new Set<string>();
-    set.add(title);
+    set.add(currentMovieTitle);
     // useEffect(() => {
     //     if (!divRef.current) throw Error("divRef is not assigned");
     // });
@@ -95,7 +97,7 @@ const MovieRecommendation = ({
 
     return (
         <div className={styles.recommended}>
-            <h2>Watch similar movies</h2>
+            <h2>{heading}</h2>
 
             <div
                 className={styles.railContainer}
