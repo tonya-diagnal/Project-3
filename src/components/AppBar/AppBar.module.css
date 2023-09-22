@@ -142,3 +142,19 @@
         color: black;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .searchButton {
+        right: 0.4rem;
+    }
+    .logo img {
+        width: 15rem;
+    }
+}
+
+@media screen and (hover: none) and (pointer: coarse) {
+    .searchButton:hover {
+        background-color: initial;
+        color: white;
+    }
+}
