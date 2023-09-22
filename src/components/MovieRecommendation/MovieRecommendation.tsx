@@ -88,6 +88,11 @@ const MovieRecommendation = ({
     const mouseLeaveHandler = () => {
         setIsHover(false);
     };
+
+    // const scrollToTopHandler = () => {
+    //     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    // };
+
     return (
         <div className={styles.recommended}>
             <h2>Watch similar movies</h2>
