@@ -10,9 +10,9 @@ import { RootState } from "../../store/store";
 
 const MovieDetails = () => {
     const topDivRef = useRef<HTMLDivElement>(null);
-    const scrollToTop = () => {
-        topDivRef?.current?.scrollIntoView({ behavior: "smooth" });
-    };
+    // const scrollToTop = () => {
+    //     topDivRef?.current?.scrollIntoView({ behavior: "smooth" });
+    // };
 
     type imageColourType = `rgb(${number},${number},${number})`;
     const [imageColour, setImageColour] =
@@ -114,12 +114,12 @@ const MovieDetails = () => {
                                 />
                             </div>
                         </div>
-                        <div onClick={scrollToTop}>
-                            <MovieRecommendation
-                                genres={movie.genres}
-                                title={movie.title}
-                            />
-                        </div>
+                        {/* <div onClick={scrollToTop}> */}
+                        <MovieRecommendation
+                            genres={movie.genres}
+                            title={movie.title}
+                        />
+                        {/* </div> */}
                     </div>
                 </>
             )}
