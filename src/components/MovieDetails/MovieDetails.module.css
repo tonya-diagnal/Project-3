@@ -108,6 +108,7 @@
         flex-direction: column-reverse;
         padding: 5px;
         align-items: normal;
+        row-gap: 1rem;
     }
     .titleImage img {
         width: 100%;
