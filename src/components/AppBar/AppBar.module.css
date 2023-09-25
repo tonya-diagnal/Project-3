@@ -5,9 +5,7 @@
     background-color: #000000;
     color: white;
     padding: 10px;
-
     justify-content: center;
-    z-index: 20;
     height: 60px;
     position: relative;
 }
@@ -16,6 +14,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 4;
 }
 
 .logo {
