@@ -3,6 +3,8 @@ import MovieList from "../../components/MovieList/MovieList";
 import UIContext from "../../store/context/UI-Context/UI-context";
 import MovieContext from "../../store/context/movie-context";
 import styles from "./MovieHome.module.css";
+import MovieRecommendation from "../../components/MovieRecommendation/MovieRecommendation";
+import Carousel from "../../components/UI/Carousel";
 // import Carousel from "../../components/UI/Carousel";
 
 const MovieHome = () => {
@@ -29,7 +31,13 @@ const MovieHome = () => {
                     />
                 </div>
             )}
-            {/* <Carousel /> */}
+            <Carousel />
+            <MovieRecommendation
+                genres={["Action"]}
+                currentMovieTitle="Crocodile Dundee"
+                heading="Trending"
+            />
+
             <MovieList />
         </main>
     );
