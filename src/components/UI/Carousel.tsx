@@ -74,7 +74,7 @@ const Carousel = () => {
         filterImageLinks();
     }, [movieList]);
     console.log(refs);
-    let movie = movieList[1];
+    // let movie = movieList[1];
 
     return (
         <div className={styles.slider}>
@@ -84,7 +84,7 @@ const Carousel = () => {
                         id={`slide-${index}`}
                         key={movie.id}
                         className={styles.slide}
-                        ref={refs.current[index]}
+                        // ref={refs.current[index]}
                     >
                         <div
                             style={{
