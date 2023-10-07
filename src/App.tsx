@@ -4,6 +4,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import MovieHome from "./pages/MovieHome/MovieHome";
 import MovieTrailerPage from "./pages/MovieTrailerPage/MovieTrailerPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+// import "./css-normalize/modern-normalize.css";
 
 const router = createBrowserRouter([
     {
