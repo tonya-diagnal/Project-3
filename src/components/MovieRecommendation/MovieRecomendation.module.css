@@ -1,14 +1,16 @@
 .rail {
     display: flex;
     flex-wrap: nowrap;
-    gap: 1rem;
+    /* gap: 1rem; */
+    column-gap: 1.4rem;
+    justify-content: flex-start;
     /* margin: auto; */
     /* align-items: center; */
     overflow-x: scroll;
     /* padding: 0.2 0.5rem 2rem; */
     padding-bottom: 2px;
     /* max-width: 90%; */
-    gap: 1rem;
+    /* gap: 1rem; */
     scroll-behavior: smooth;
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none; /* IE and Edge */

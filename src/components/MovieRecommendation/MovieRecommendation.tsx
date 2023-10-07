@@ -68,7 +68,7 @@ const MovieRecommendation = ({
         genres &&
         movieList.forEach((movie) => {
             // console.log(movie.genres);
-            for (let testGenre of movie.genres) {
+            for (let testGenre of movie.genres.slice(0, 1)) {
                 if (flag === false) break;
                 // console.log(testGenre);
                 if (genres.includes(testGenre)) {
@@ -83,6 +83,30 @@ const MovieRecommendation = ({
                 }
             }
         });
+
+    if (set.size <= 7) {
+        set.clear();
+        moviesToRecommend.length = 0;
+        movieList &&
+            genres &&
+            movieList.forEach((movie) => {
+                // console.log(movie.genres);
+                for (let testGenre of movie.genres) {
+                    if (flag === false) break;
+                    // console.log(testGenre);
+                    if (genres.includes(testGenre)) {
+                        if (set.has(movie.title)) break;
+                        set.add(movie.title);
+                        moviesToRecommend.push(movie);
+                        i++;
+                        if (i === 12) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                }
+            });
+    }
 
     const mouseOverHandler = () => {
         setIsHover(true);
