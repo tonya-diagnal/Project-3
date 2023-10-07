@@ -2,9 +2,11 @@ import { useSelector } from "react-redux";
 import styles from "./Carousel.module.css";
 import { RootState } from "../../store/store";
 import { MovieItemType } from "../../store/movieList/movieListClass";
-import React, { useEffect, useRef, useState } from "react";
+import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Carousel = () => {
+    const navigate = useNavigate();
     // const [test1, setTest1] = useState([] as MovieItemType[]);
     const [carouselMovies, setCarouselMovies] = useState([] as MovieItemType[]);
     const carousalRef = useRef<HTMLDivElement>(null);
@@ -76,14 +78,23 @@ const Carousel = () => {
     console.log(refs);
     // let movie = movieList[1];
 
+    const slideClickHandler = (
+        event: SyntheticEvent<HTMLDivElement, Event>
+    ) => {
+        const movieId = event.currentTarget.attributes[1].value;
+        // console.log();
+        navigate(`/movie/${movieId}`);
+    };
     return (
         <div className={styles.slider}>
             <div className={styles.slides} ref={carousalRef}>
                 {carouselMovies.map((movie, index) => (
                     <div
                         id={`slide-${index}`}
+                        data-movie-id={movie.id}
                         key={movie.id}
                         className={styles.slide}
+                        onClick={slideClickHandler}
                         // ref={refs.current[index]}
                     >
                         <div
