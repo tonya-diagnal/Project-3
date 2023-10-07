@@ -4,12 +4,15 @@ import UIContext from "../../store/context/UI-Context/UI-context";
 import MovieContext from "../../store/context/movie-context";
 import styles from "./MovieHome.module.css";
 import MovieRecommendation from "../../components/MovieRecommendation/MovieRecommendation";
-// import Carousel from "../../components/UI/Carousel";
-// import Carousel from "../../components/UI/Carousel";
+import Carousel from "../../components/UI/Carousel";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { GenreType } from "../../store/movieList/movieListClass";
 
 const MovieHome = () => {
     const uiCtx = useContext(UIContext);
     const movieCtx = useContext(MovieContext);
+    const genres = useSelector((state: RootState) => state.movieList.genres);
 
     const searchTermChangeHandler = (
         event: SyntheticEvent<HTMLInputElement, Event>
@@ -18,7 +21,7 @@ const MovieHome = () => {
     };
 
     return (
-        <main>
+        <main style={{ marginTop: "1rem" }}>
             {uiCtx.showMobileSearchBar && (
                 <div className={styles.searchBar}>
                     <input
@@ -32,11 +35,13 @@ const MovieHome = () => {
                 </div>
             )}
             {/* <Carousel /> */}
-            <MovieRecommendation
-                genres={["Action"]}
-                currentMovieTitle="Crocodile Dundee"
-                heading="Trending"
-            />
+            {genres.map((genre: GenreType, _index: number) => (
+                <MovieRecommendation
+                    genres={[genre]}
+                    currentMovieTitle="Crocodile Dundee"
+                    heading={genre}
+                />
+            ))}
 
             <MovieList />
         </main>
