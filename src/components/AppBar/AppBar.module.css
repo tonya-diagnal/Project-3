@@ -1,3 +1,26 @@
+.mobileSearchBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.mobileSearchBar input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    min-width: 100px;
+    height: 2.7rem;
+    font-size: 15px;
+    display: none;
+}
+
+@media screen and (max-width: 860px) {
+    .mobileSearchBar input {
+        display: block;
+    }
+}
+
 .appbar {
     display: flex;
 
@@ -15,6 +38,7 @@
     top: 0;
     width: 100%;
     z-index: 4;
+    background-color: #000000;
 }
 
 .logo {
@@ -151,7 +175,7 @@
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
     .searchButton {
         right: 0.4rem;
     }

@@ -93,6 +93,18 @@ const AppBar = () => {
                         </div>
                     )}
                 </div>
+                {uiCtx.showMobileSearchBar && (
+                    <div className={classes.mobileSearchBar}>
+                        <input
+                            id="mobile-search-input"
+                            type="text"
+                            placeholder="Search..."
+                            onChange={searchTermChangeHandler}
+                            name="mobile-search"
+                            value={movieCtx.searchTerm}
+                        />
+                    </div>
+                )}
             </div>
         </header>
     );
