@@ -32,7 +32,7 @@
     margin-bottom: 10px;
 }
 .titleImage {
-    flex: 0 0 auto;
+    flex: 0 0.1 auto;
 }
 .titleImage img {
     aspect-ratio: 2/3;
