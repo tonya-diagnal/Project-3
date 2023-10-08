@@ -64,7 +64,7 @@
     height: 34px;
     font-size: 15px;
 }
-.form > button {
+.form button {
     /* display: inline-block; */
     background-color: black;
     width: 8rem;
@@ -85,7 +85,11 @@
 
 .form > button:hover {
     background-color: rgb(255, 248, 191);
-    color: black;
+    color: rgb(45, 0, 0);
     /* border: none; */
     cursor: pointer;
+}
+
+.status {
+    color: #d54c4c;
 }

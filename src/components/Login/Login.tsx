@@ -1,16 +1,16 @@
 // import React from "react";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import styles from "./Login.module.css";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, signInUser } from "../../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
-// import{FormEve}
 
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector(getUser);
+    const [loginError, setLoginError] = useState(false);
     console.log("rdx", user);
     const formSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -24,6 +24,8 @@ const Login = () => {
             dispatch(signInUser(formDataObj));
             navigate("/");
             // navigate("")
+        } else {
+            setLoginError(true);
         }
     };
 
@@ -55,7 +57,21 @@ const Login = () => {
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" id="password" />
                     </div>
-                    <button type="submit">Login</button>
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                        }}
+                    >
+                        <button type="submit">Login</button>
+                        {loginError && (
+                            <div className={styles.status}>
+                                Invalid credentials
+                            </div>
+                        )}
+                    </div>
                 </form>
             </div>
         </div>
