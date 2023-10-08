@@ -55,13 +55,13 @@ const MovieHome = () => {
             ) : (
                 <div className={styles.searchContainer}>
                     <div>
-                        <h2>Search Results</h2>
+                        <h3>Search Results</h3>
                         <MovieList size={10} />
                     </div>
                     <div>
-                        <h2 style={{ marginBottom: "1.5rem" }}>
+                        <h3 style={{ marginBottom: "1.5rem" }}>
                             Search by Genre
-                        </h2>
+                        </h3>
                         <div>
                             {genres.map((genre: GenreType, _index: number) => (
                                 <MovieRecommendation

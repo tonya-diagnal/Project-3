@@ -21,10 +21,11 @@
     flex-direction: column;
     row-gap: 3rem;
 }
-.searchContainer h1 {
+.searchContainer > div > h3 {
     color: white;
     width: 90%;
     margin: auto;
+    font-size: 3rem;
 }
 .hidden {
     display: none;
