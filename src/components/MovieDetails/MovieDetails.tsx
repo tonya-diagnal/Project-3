@@ -119,6 +119,7 @@ const MovieDetails = () => {
                             genres={movie.genres}
                             currentMovieTitle={movie.title}
                             heading="Watch similar movies"
+                            shouldFilter={false}
                         />
                         {/* </div> */}
                     </div>

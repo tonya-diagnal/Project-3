@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import { AiOutlineLeftCircle, AiOutlineRightCircle } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import styles from "./MovieRecomendation.module.css";
 import MovieItem from "../MovieItem/MovieItem";
 import { GenreType, MovieItemType } from "../../store/movieList/movieListClass";
 import { RootState } from "../../store/store";
+import MovieContext from "../../store/context/movie-context";
 
 enum scrollDirectionType {
     "left",
@@ -15,17 +16,19 @@ const MovieRecommendation = ({
     genres,
     currentMovieTitle,
     heading,
+    shouldFilter,
 }: {
     genres: GenreType[];
     currentMovieTitle: string;
     heading: string;
+    shouldFilter: boolean;
 }) => {
     const [showLeftArrow, setShowLeftArrow] = useState(true);
     const [showRightArrow, setShowRightArrow] = useState(true);
     const [isHover, setIsHover] = useState(false);
 
     const divRef = useRef<HTMLDivElement>(null);
-
+    const movieCtx = useContext(MovieContext);
     const movieList = useSelector((state: RootState) => state.movieList.movies);
     const moviesToRecommend = [] as MovieItemType[];
 
@@ -65,7 +68,6 @@ const MovieRecommendation = ({
     };
 
     movieList &&
-        genres &&
         movieList.forEach((movie) => {
             // console.log(movie.genres);
             for (let testGenre of movie.genres.slice(0, 1)) {
@@ -108,6 +110,16 @@ const MovieRecommendation = ({
             });
     }
 
+    let filteredMoviesToRecommend = [] as MovieItemType[];
+    if (shouldFilter) {
+        filteredMoviesToRecommend = moviesToRecommend.filter((movie) =>
+            movie.title
+                .toLowerCase()
+                .includes(movieCtx.searchTerm.toLowerCase())
+        );
+    } else {
+        filteredMoviesToRecommend = moviesToRecommend;
+    }
     const mouseOverHandler = () => {
         setIsHover(true);
     };
@@ -119,10 +131,14 @@ const MovieRecommendation = ({
     //     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     // };
 
+    if (filteredMoviesToRecommend.length === 0) {
+        // return <p style={{ color: "white" }}>No results</p>;
+        return <div></div>;
+    }
+
     return (
         <div className={styles.recommended}>
             <h2>{heading}</h2>
-
             <div
                 className={styles.railContainer}
                 // style={{ backgroundColor: "wheat" }}
@@ -143,7 +159,7 @@ const MovieRecommendation = ({
                     className={isHover ? styles.innerRailContainer : undefined}
                 >
                     <div className={styles.rail} ref={divRef}>
-                        {moviesToRecommend.map((movie) => (
+                        {filteredMoviesToRecommend.map((movie) => (
                             // <MovieRailItem movie={movie} key={movie.id} />
                             <MovieItem movie={movie} key={movie.id} />
                         ))}
