@@ -41,7 +41,9 @@ const ProfileButton = () => {
 
     if (isSignedIn) {
         menu = [
-            <button>{user ? user.email.slice(0, 4) : "User"}</button>,
+            <button>
+                {user ? user.email.slice(0, 4).toUpperCase() : "User"}
+            </button>,
             <button onClick={logoutClickHandler}>Sign out</button>,
         ];
     }
