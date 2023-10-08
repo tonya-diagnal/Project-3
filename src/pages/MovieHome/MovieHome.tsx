@@ -34,7 +34,10 @@ const MovieHome = () => {
                     />
                 </div>
             )}
-            {!movieCtx.searchTerm && <Carousel />}
+            {/* {!movieCtx.searchTerm && <Carousel />} */}
+            <div className={movieCtx.searchTerm ? styles.hidden : undefined}>
+                <Carousel />
+            </div>
             {!movieCtx.searchTerm ? (
                 <>
                     {genres.map((genre: GenreType, _index: number) => (
