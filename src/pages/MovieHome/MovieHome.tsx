@@ -34,16 +34,42 @@ const MovieHome = () => {
                     />
                 </div>
             )}
-            {/* <Carousel /> */}
-            {genres.map((genre: GenreType, _index: number) => (
-                <MovieRecommendation
-                    genres={[genre]}
-                    currentMovieTitle="Crocodile Dundee"
-                    heading={genre}
-                />
-            ))}
-
-            <MovieList />
+            {!movieCtx.searchTerm && <Carousel />}
+            {!movieCtx.searchTerm ? (
+                <>
+                    {genres.map((genre: GenreType, _index: number) => (
+                        <MovieRecommendation
+                            genres={[genre]}
+                            currentMovieTitle="Crocodile Dundee"
+                            heading={genre}
+                        />
+                    ))}
+                    <div style={{ marginTop: "2rem" }}>
+                        <MovieList size={-1} />
+                    </div>
+                </>
+            ) : (
+                <div className={styles.searchContainer}>
+                    <div>
+                        <h1>Search Results</h1>
+                        <MovieList size={10} />
+                    </div>
+                    <div>
+                        <h1 style={{ marginBottom: "1.5rem" }}>
+                            Search by Genre
+                        </h1>
+                        <div>
+                            {genres.map((genre: GenreType, _index: number) => (
+                                <MovieRecommendation
+                                    genres={[genre]}
+                                    currentMovieTitle="Crocodile Dundee"
+                                    heading={genre}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 };

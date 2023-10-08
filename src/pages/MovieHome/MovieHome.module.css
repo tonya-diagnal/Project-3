@@ -14,6 +14,17 @@
     display: none;
 }
 
+.searchContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+.searchContainer h1 {
+    color: white;
+    width: 90%;
+    margin: auto;
+}
 @media screen and (max-width: 770px) {
     .searchBar input {
         display: block;
