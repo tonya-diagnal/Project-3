@@ -8,10 +8,8 @@
 
 .slides {
     display: flex;
-
-    overflow-x: auto;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
-
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 0.5rem;
@@ -133,7 +131,7 @@
 }
 .navigator {
     display: inline-flex;
-    /* display: flex; */
+    display: flex;
 
     align-items: center;
     justify-content: center;
