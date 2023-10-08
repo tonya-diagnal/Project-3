@@ -93,7 +93,7 @@ const AppBar = () => {
                         </div>
                     )}
                 </div>
-                {uiCtx.showMobileSearchBar && (
+                {uiCtx.showMobileSearchBar && location.pathname === "/" && (
                     <div className={classes.mobileSearchBar}>
                         <input
                             id="mobile-search-input"
