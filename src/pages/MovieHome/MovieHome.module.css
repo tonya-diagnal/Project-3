@@ -1,6 +1,7 @@
 .searchBar {
     display: flex;
     justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .searchBar input {
@@ -15,7 +16,7 @@
 }
 
 .searchContainer {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     display: flex;
     flex-direction: column;
     row-gap: 3rem;
@@ -25,6 +26,10 @@
     width: 90%;
     margin: auto;
 }
+.hidden {
+    display: none;
+}
+
 @media screen and (max-width: 770px) {
     .searchBar input {
         display: block;
