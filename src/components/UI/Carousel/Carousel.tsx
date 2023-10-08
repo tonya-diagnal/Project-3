@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import styles from "./Carousel.module.css";
-import { RootState } from "../../store/store";
-import { MovieItemType } from "../../store/movieList/movieListClass";
+import { RootState } from "../../../store/store";
+import { MovieItemType } from "../../../store/movieList/movieListClass";
 import React, { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
