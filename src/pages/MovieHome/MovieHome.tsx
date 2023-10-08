@@ -21,7 +21,7 @@ const MovieHome = () => {
     };
 
     return (
-        <main style={{ marginTop: "1rem" }}>
+        <main style={{ marginTop: "1rem", backgroundColor: "black" }}>
             {uiCtx.showMobileSearchBar && (
                 <div className={styles.searchBar}>
                     <input
@@ -42,6 +42,7 @@ const MovieHome = () => {
                             genres={[genre]}
                             currentMovieTitle="Crocodile Dundee"
                             heading={genre}
+                            shouldFilter={true}
                         />
                     ))}
                     <div style={{ marginTop: "2rem" }}>
@@ -64,6 +65,7 @@ const MovieHome = () => {
                                     genres={[genre]}
                                     currentMovieTitle="Crocodile Dundee"
                                     heading={genre}
+                                    shouldFilter={true}
                                 />
                             ))}
                         </div>
