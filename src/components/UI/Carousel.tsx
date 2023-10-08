@@ -264,11 +264,11 @@ const Carousel = () => {
                 </div> */}
             </div>
             <div className={styles.navigator}>
+                <a href="#slide-0"></a>
                 <a href="#slide-1"></a>
                 <a href="#slide-2"></a>
                 <a href="#slide-3"></a>
                 <a href="#slide-4"></a>
-                <a href="#slide-5"></a>
             </div>
         </div>
     );
