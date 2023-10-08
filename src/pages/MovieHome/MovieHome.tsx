@@ -4,25 +4,25 @@ import UIContext from "../../store/context/UI-Context/UI-context";
 import MovieContext from "../../store/context/movie-context";
 import styles from "./MovieHome.module.css";
 import MovieRecommendation from "../../components/MovieRecommendation/MovieRecommendation";
-import Carousel from "../../components/UI/Carousel";
+import Carousel from "../../components/UI/Carousel/Carousel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { GenreType } from "../../store/movieList/movieListClass";
 
 const MovieHome = () => {
-    const uiCtx = useContext(UIContext);
+    // const uiCtx = useContext(UIContext);
     const movieCtx = useContext(MovieContext);
     const genres = useSelector((state: RootState) => state.movieList.genres);
 
-    const searchTermChangeHandler = (
-        event: SyntheticEvent<HTMLInputElement, Event>
-    ) => {
-        movieCtx.setSearchTerm(event.currentTarget.value);
-    };
+    // const searchTermChangeHandler = (
+    //     event: SyntheticEvent<HTMLInputElement, Event>
+    // ) => {
+    //     movieCtx.setSearchTerm(event.currentTarget.value);
+    // };
 
     return (
         <main style={{ marginTop: "1rem", backgroundColor: "black" }}>
-            {uiCtx.showMobileSearchBar && (
+            {/* {uiCtx.showMobileSearchBar && (
                 <div className={styles.searchBar}>
                     <input
                         id="mobile-search-input"
@@ -33,7 +33,7 @@ const MovieHome = () => {
                         value={movieCtx.searchTerm}
                     />
                 </div>
-            )}
+            )} */}
             {/* {!movieCtx.searchTerm && <Carousel />} */}
             <div className={movieCtx.searchTerm ? styles.hidden : undefined}>
                 <Carousel />
@@ -55,13 +55,13 @@ const MovieHome = () => {
             ) : (
                 <div className={styles.searchContainer}>
                     <div>
-                        <h1>Search Results</h1>
+                        <h2>Search Results</h2>
                         <MovieList size={10} />
                     </div>
                     <div>
-                        <h1 style={{ marginBottom: "1.5rem" }}>
+                        <h2 style={{ marginBottom: "1.5rem" }}>
                             Search by Genre
-                        </h1>
+                        </h2>
                         <div>
                             {genres.map((genre: GenreType, _index: number) => (
                                 <MovieRecommendation
