@@ -5,8 +5,10 @@ import MovieContext from "../../store/context/movie-context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
+// import { CgProfile } from "react-icons/cg";
 import { SyntheticEvent } from "react";
 import UIContext from "../../store/context/UI-Context/UI-context";
+import ProfileButton from "../UI/ProfileButton/ProfileButton";
 
 const AppBar = () => {
     const location = useLocation();
@@ -57,7 +59,7 @@ const AppBar = () => {
                                 {/* </form> */}
                                 <FaSearch
                                     className={classes.searchIcon}
-                                    color="black"
+                                    color="white"
                                     size={20}
                                 />
                             </div>
@@ -70,6 +72,13 @@ const AppBar = () => {
                                     // color="white"
                                     size={20}
                                 />
+                            </div>
+                            <div className={classes.profileButton}>
+                                {/* <CgProfile
+                                    className={classes.profileIcon}
+                                    size={31}
+                                /> */}
+                                <ProfileButton />
                             </div>
                         </>
                     )}
