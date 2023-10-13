@@ -20,3 +20,9 @@
     height: 100%;
     object-fit: cover;
 } */
+
+@media screen and (max-width: 530px) {
+    .swiper {
+        width: 100%;
+    }
+}

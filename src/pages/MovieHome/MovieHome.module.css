@@ -31,6 +31,10 @@
     display: none;
 }
 
+.carousel {
+    margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 770px) {
     .searchBar input {
         display: block;
