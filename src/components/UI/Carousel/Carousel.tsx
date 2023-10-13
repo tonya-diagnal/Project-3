@@ -18,25 +18,25 @@ const Carousel = () => {
         // const element = document.getElementById("slide-3");
         // console.log(element);
     }, [refs.current[3]]);
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            console.log("car4", carousalRef.current);
-            const item3 = carousalRef.current?.childNodes.item(2);
-            console.log("car5", item3);
+    // useEffect(() => {
+    //     const timerId = setTimeout(() => {
+    //         console.log("car4", carousalRef.current);
+    //         const item3 = carousalRef.current?.childNodes.item(2);
+    //         console.log("car5", item3);
 
-            // item3!.scrollIntoView();
-        }, 1000);
-        return clearTimeout(timerId);
-    }, []);
+    //         // item3!.scrollIntoView();
+    //     }, 1000);
+    //     return clearTimeout(timerId);
+    // }, []);
 
-    useEffect(() => {
-        // console.log("effect")
-        const intervalId = setInterval(() => {
-            console.log("in interval");
-            nextSlideHandler();
-        }, 1000);
-        return clearInterval(intervalId);
-    }, []);
+    // useEffect(() => {
+    //     // console.log("effect")
+    //     const intervalId = setInterval(() => {
+    //         console.log("in interval");
+    //         nextSlideHandler();
+    //     }, 1000);
+    //     return clearInterval(intervalId);
+    // }, []);
 
     const filterImageLinks = async () => {
         let validMovies = [] as MovieItemType[];
