@@ -36,7 +36,11 @@ const MovieHome = () => {
                 </div>
             )} */}
             {/* {!movieCtx.searchTerm && <Carousel />} */}
-            <div className={movieCtx.searchTerm ? styles.hidden : undefined}>
+            <div
+                className={`${styles.carousel} ${
+                    movieCtx.searchTerm ? styles.hidden : undefined
+                }`}
+            >
                 {/* <Carousel /> */}
                 <Carousel2 />
             </div>
