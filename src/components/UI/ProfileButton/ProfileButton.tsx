@@ -1,5 +1,5 @@
 // import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import { CgProfile } from "react-icons/cg";
 import styles from "./ProfileButton.module.css";
@@ -11,27 +11,32 @@ import {
     signOutUser,
 } from "../../../store/user/userSlice";
 
-const ProfileButton = () => {
+const ProfileButton = ({
+    open,
+    handleProfileOpen,
+}: {
+    open: boolean;
+    handleProfileOpen: (val: boolean | null) => void;
+}) => {
     const dispatch = useDispatch();
     const isSignedIn = useSelector(isLoggedIn);
     const user = useSelector(getUser);
     const navigate = useNavigate();
-    const [open, setOpen] = useState<boolean>(false);
+    // const [open, setOpen] = useState<boolean>(false);
 
     const handleOpen = () => {
-        setOpen((prevState) => !prevState);
+        handleProfileOpen(null);
     };
 
     const loginClickHandler = () => {
-        // do something
-        setOpen(false);
+        handleProfileOpen(false);
         navigate("/login");
     };
 
     const logoutClickHandler = () => {
-        // do something
-        setOpen(false);
+        handleProfileOpen(false);
         dispatch(signOutUser());
+        navigate(0);
     };
 
     let menu = [

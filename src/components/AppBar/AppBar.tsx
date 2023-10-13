@@ -9,8 +9,13 @@ import { BiArrowBack } from "react-icons/bi";
 import { SyntheticEvent } from "react";
 import UIContext from "../../store/context/UI-Context/UI-context";
 import ProfileButton from "../UI/ProfileButton/ProfileButton";
+import { useState } from "react";
+import useOutsideClick from "../../hooks/handleClickOutside";
 
 const AppBar = () => {
+    // const [open, setOpen] = useState<boolean>(false);
+
+    const [profileMenuOpen, setProfileMenuOpen] = useState<boolean>(false);
     const location = useLocation();
     const navigate = useNavigate();
     const movieCtx = useContext(MovieContext);
@@ -21,6 +26,13 @@ const AppBar = () => {
         movieCtx.setSearchTerm(event.currentTarget.value);
     };
 
+    const handleClickOutside = () => {
+        // setCount(0);
+        // console.log("cicked outside");
+        setProfileMenuOpen(false);
+    };
+
+    const profileRef = useOutsideClick(handleClickOutside);
     const logoClickHandler = () => {
         movieCtx.setSearchTerm("");
         navigate("/");
@@ -36,6 +48,14 @@ const AppBar = () => {
         uiCtx.toggleMobileSearchBar();
     };
 
+    const profileClickHandler = (val: boolean | null) => {
+        if (val === null || val === undefined) {
+            setProfileMenuOpen((prevState) => !prevState);
+        } else {
+            setProfileMenuOpen(val);
+        }
+    };
+
     return (
         <header>
             <div className={classes.appbarContainer}>
@@ -47,7 +67,6 @@ const AppBar = () => {
                     {location.pathname === "/" && (
                         <>
                             <div className={classes.searchBar}>
-                                {/* <form onSubmit={searchSubmitHandler}> */}
                                 <input
                                     id="search-input"
                                     type="text"
@@ -75,12 +94,11 @@ const AppBar = () => {
                             </div>
                         </>
                     )}
-                    <div className={classes.profileButton}>
-                        {/* <CgProfile
-                                    className={classes.profileIcon}
-                                    size={31}
-                                /> */}
-                        <ProfileButton />
+                    <div className={classes.profileButton} ref={profileRef}>
+                        <ProfileButton
+                            open={profileMenuOpen}
+                            handleProfileOpen={profileClickHandler}
+                        />
                     </div>
                     {(location.pathname.includes("/movie/") ||
                         location.pathname.includes("/trailer")) && (
