@@ -73,15 +73,15 @@ const AppBar = () => {
                                     size={20}
                                 />
                             </div>
-                            <div className={classes.profileButton}>
-                                {/* <CgProfile
+                        </>
+                    )}
+                    <div className={classes.profileButton}>
+                        {/* <CgProfile
                                     className={classes.profileIcon}
                                     size={31}
                                 /> */}
-                                <ProfileButton />
-                            </div>
-                        </>
-                    )}
+                        <ProfileButton />
+                    </div>
                     {(location.pathname.includes("/movie/") ||
                         location.pathname.includes("/trailer")) && (
                         <div
