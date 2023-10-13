@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import MovieContext from "../../store/context/movie-context";
 import { RootState } from "../../store/store";
 
-const MovieList = () => {
+const MovieList = ({ size }: { size: number }) => {
     const movieList = useSelector((state: RootState) => state.movieList.movies);
     const movieCtx = useContext(MovieContext);
 
@@ -13,11 +13,14 @@ const MovieList = () => {
         movie.title.toLowerCase().includes(movieCtx.searchTerm.toLowerCase())
     );
 
+    const resizedFilteredList =
+        size >= -1 ? filteredMovieList.slice(0, size) : filteredMovieList;
+    // console.log(size);
     return (
         <div className={styles.movieListContainer}>
             <div className={styles.movieList}>
-                {filteredMovieList.length > 0 ? (
-                    filteredMovieList.map((movie) => (
+                {resizedFilteredList.length > 0 ? (
+                    resizedFilteredList.map((movie) => (
                         <MovieItem movie={movie} key={movie.id} />
                     ))
                 ) : (

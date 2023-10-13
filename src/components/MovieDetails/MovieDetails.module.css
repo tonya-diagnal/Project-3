@@ -32,7 +32,7 @@
     margin-bottom: 10px;
 }
 .titleImage {
-    flex: 0 0 auto;
+    flex: 0 0.1 auto;
 }
 .titleImage img {
     aspect-ratio: 2/3;
@@ -108,6 +108,7 @@
         flex-direction: column-reverse;
         padding: 5px;
         align-items: normal;
+        row-gap: 1rem;
     }
     .titleImage img {
         width: 100%;
@@ -116,6 +117,7 @@
     .titleImage {
         width: 60%;
         align-self: center;
+        margin-top: 0.5rem;
     }
 
     .movieDetails {
@@ -127,12 +129,23 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .titleImage {
+        width: 75%;
+    }
+}
 @media screen and (max-width: 450px) {
     .movieDetails h1 {
         font-size: 3.5rem;
     }
+
+    .titleImage {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 300px) {
     .titleImage {
         width: 100%;
-        align-self: center;
     }
 }

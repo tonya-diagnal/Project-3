@@ -1,6 +1,7 @@
 .searchBar {
     display: flex;
     justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
 .searchBar input {
@@ -11,6 +12,22 @@
     min-width: 100px;
     height: 34px;
     font-size: 15px;
+    display: none;
+}
+
+.searchContainer {
+    /* margin-top: 2rem; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+.searchContainer > div > h3 {
+    color: white;
+    width: 90%;
+    margin: auto;
+    font-size: 3rem;
+}
+.hidden {
     display: none;
 }
 

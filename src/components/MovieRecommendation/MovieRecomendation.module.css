@@ -1,14 +1,16 @@
 .rail {
     display: flex;
     flex-wrap: nowrap;
-    gap: 1rem;
+    /* gap: 1rem; */
+    column-gap: 1.4rem;
+    justify-content: flex-start;
     /* margin: auto; */
     /* align-items: center; */
     overflow-x: scroll;
     /* padding: 0.2 0.5rem 2rem; */
     padding-bottom: 2px;
     /* max-width: 90%; */
-    gap: 1rem;
+    /* gap: 1rem; */
     scroll-behavior: smooth;
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -24,7 +26,7 @@
     width: 30px;
     background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     /* transition: background 3s ease; */
 }
 
@@ -35,7 +37,7 @@
     background: linear-gradient(to left, black 0%, rgba(0, 0, 0, 0) 100%);
     /* background-color: #ffee66; */
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     right: 0;
     top: 0;
 }
@@ -61,7 +63,7 @@
     background-color: black;
     border: none;
     border-radius: 500px;
-    z-index: 20;
+    z-index: 3;
     width: 40px;
     height: 40px;
 }
@@ -79,7 +81,7 @@
     background-color: black;
     border: none;
     border-radius: 500px;
-    z-index: 20;
+    z-index: 3;
     width: 40px;
     height: 40px;
 }
