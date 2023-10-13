@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signInUser } from "./store/user/userSlice";
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
+// import ProtectedRoute2 from "./pages/ProtectedRoute2/ProtectedRoute2";
 // import "./css-normalize/modern-normalize.css";
 
 const router = createBrowserRouter([
