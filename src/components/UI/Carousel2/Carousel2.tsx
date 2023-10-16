@@ -1,5 +1,3 @@
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -10,12 +8,11 @@ import "swiper/css/navigation";
 import "./Carousel2.css";
 import styles from "./Carousal2.module.css";
 
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { MovieItemType } from "../../../store/movieList/movieListClass";
-import { SyntheticEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function App() {
