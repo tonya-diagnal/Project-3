@@ -1,13 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-const initialState = { isLoggedIn: false, user: { email: "", password: "" } };
+type userSliceState = {
+    isLoggedIn: boolean;
+    user: { email: string; password: string };
+};
+
+const initialState: userSliceState = {
+    isLoggedIn: false,
+    user: { email: "", password: "" },
+};
+
+type userData = { email: string; password: string };
 
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        signInUser(state, action) {
+        signInUser(
+            state,
+            action: {
+                type: string;
+                payload: userData;
+            }
+        ) {
             const { email, password } = action.payload;
             localStorage.setItem("user", JSON.stringify(action.payload));
             localStorage.setItem("isLoggedIn", "true");
@@ -17,7 +33,7 @@ const userSlice = createSlice({
         },
 
         signOutUser(state) {
-            console.log("in signout reducer");
+            // console.log("in signout reducer");
             localStorage.setItem("isLoggedIn", "false");
             localStorage.removeItem("user");
             state.isLoggedIn = false;
