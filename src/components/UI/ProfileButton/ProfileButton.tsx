@@ -36,7 +36,7 @@ const ProfileButton = ({
     const logoutClickHandler = () => {
         handleProfileOpen(false);
         dispatch(signOutUser());
-        navigate(0);
+        navigate('/');
     };
 
     let menu = [
