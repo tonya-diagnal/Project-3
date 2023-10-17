@@ -55,9 +55,9 @@ const MovieHome = () => {
                             key={genre}
                         />
                     ))}
-                    <div style={{ marginTop: "2rem" }}>
+                    {/* <div style={{ marginTop: "2rem" }}>
                         <MovieList size={-1} />
-                    </div>
+                    </div> */}
                 </>
             ) : (
                 <div className={styles.searchContainer}>
@@ -65,7 +65,7 @@ const MovieHome = () => {
                         <h3>Search Results</h3>
                         <MovieList size={10} />
                     </div>
-                    <div>
+                    {/* <div>
                         <h3 style={{ marginBottom: "1.5rem" }}>
                             Search by Genre
                         </h3>
@@ -80,7 +80,7 @@ const MovieHome = () => {
                                 />
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             )}
         </main>
