@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser, isLoggedIn, signInUser } from "../../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
+const userEmail = "test@diagnal.com";
+const userPassword = "123";
+
 const Login = () => {
     const isSignedIn = useSelector(isLoggedIn);
     const dispatch = useDispatch();
@@ -19,8 +22,8 @@ const Login = () => {
         const formDataObj = Object.fromEntries(formData.entries());
         // console.log(formDataObj);
         if (
-            formDataObj["email"] === "test@diagnal.com" &&
-            formDataObj["password"] === "123"
+            formDataObj["email"] === userEmail &&
+            formDataObj["password"] === userPassword
         ) {
             dispatch(
                 signInUser({
@@ -70,7 +73,12 @@ const Login = () => {
                     <form className={styles.form} onSubmit={formSubmitHandler}>
                         <div className={styles.formField}>
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" />
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                defaultValue={userEmail}
+                            />
                         </div>
                         <div className={styles.formField}>
                             <label htmlFor="password">Password</label>
@@ -78,6 +86,7 @@ const Login = () => {
                                 type="password"
                                 name="password"
                                 id="password"
+                                defaultValue={userPassword}
                             />
                         </div>
                         <div
