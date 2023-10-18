@@ -39,7 +39,11 @@ const AppBar = () => {
     };
 
     const backButtonHandler = () => {
-        navigate(-1);
+        if (location.pathname == "/login") {
+            navigate("/");
+        } else {
+            navigate(-1);
+        }
     };
 
     const mobileSearchBarHandler = (
