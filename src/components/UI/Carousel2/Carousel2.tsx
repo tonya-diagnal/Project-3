@@ -104,14 +104,14 @@ export default function App() {
                             data-movie-id={movie.id}
                             key={movie.id}
                             className={styles.slide}
-                            onClick={(event) => {
-                                navigate(
-                                    `/movie/${event.currentTarget.dataset.movieId}`
-                                );
-                                // console.log(
-                                //     event.currentTarget.dataset.movieId
-                                // );
-                            }}
+                            // onClick={(event) => {
+                            //     navigate(
+                            //         `/movie/${event.currentTarget.dataset.movieId}`
+                            //     );
+                            //     // console.log(
+                            //     //     event.currentTarget.dataset.movieId
+                            //     // );
+                            // }}
                             // ref={refs.current[index]}
                         >
                             <div
@@ -170,6 +170,20 @@ export default function App() {
                                     <div className={styles.plot}>
                                         {movie.plot}
                                     </div>
+                                    <button
+                                        onClick={(_event) => {
+                                            navigate(
+                                                // `/movie/${event.currentTarget.dataset.movieId}`
+                                                `/movie/${movie.id}`
+                                            );
+                                            // console.log(
+                                            //     event.currentTarget.dataset.movieId
+                                            // );
+                                        }}
+                                        className={styles.button}
+                                    >
+                                        Visit
+                                    </button>
                                 </div>
                             </div>
                         </div>
