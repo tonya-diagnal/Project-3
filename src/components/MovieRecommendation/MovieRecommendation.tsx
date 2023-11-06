@@ -145,16 +145,18 @@ const MovieRecommendation = ({
                 onMouseOver={mouseOverHandler}
                 onMouseLeave={mouseLeaveHandler}
             >
-                {showLeftArrow && isHover && (
-                    <button
-                        className={styles.leftButton}
-                        onClick={() =>
-                            railScrollHandler(scrollDirectionType.left)
-                        }
-                    >
-                        <AiOutlineLeftCircle size={35} />
-                    </button>
-                )}
+                {showLeftArrow &&
+                    isHover &&
+                    filteredMoviesToRecommend.length > 5 && (
+                        <button
+                            className={styles.leftButton}
+                            onClick={() =>
+                                railScrollHandler(scrollDirectionType.left)
+                            }
+                        >
+                            <AiOutlineLeftCircle size={35} />
+                        </button>
+                    )}
                 <div
                     className={isHover ? styles.innerRailContainer : undefined}
                 >
@@ -165,16 +167,18 @@ const MovieRecommendation = ({
                         ))}
                     </div>
                 </div>
-                {showRightArrow && isHover && (
-                    <button
-                        className={isHover ? styles.rightButton : undefined}
-                        onClick={() =>
-                            railScrollHandler(scrollDirectionType.right)
-                        }
-                    >
-                        <AiOutlineRightCircle size={35} />
-                    </button>
-                )}
+                {showRightArrow &&
+                    isHover &&
+                    filteredMoviesToRecommend.length > 5 && (
+                        <button
+                            className={isHover ? styles.rightButton : undefined}
+                            onClick={() =>
+                                railScrollHandler(scrollDirectionType.right)
+                            }
+                        >
+                            <AiOutlineRightCircle size={35} />
+                        </button>
+                    )}
             </div>
         </div>
     );

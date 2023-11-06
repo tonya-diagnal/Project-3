@@ -78,6 +78,7 @@ export default function App() {
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
+                // loop={true}
                 pagination={{
                     clickable: true,
                 }}
@@ -103,14 +104,14 @@ export default function App() {
                             data-movie-id={movie.id}
                             key={movie.id}
                             className={styles.slide}
-                            onClick={(event) => {
-                                navigate(
-                                    `/movie/${event.currentTarget.dataset.movieId}`
-                                );
-                                // console.log(
-                                //     event.currentTarget.dataset.movieId
-                                // );
-                            }}
+                            // onClick={(event) => {
+                            //     navigate(
+                            //         `/movie/${event.currentTarget.dataset.movieId}`
+                            //     );
+                            //     // console.log(
+                            //     //     event.currentTarget.dataset.movieId
+                            //     // );
+                            // }}
                             // ref={refs.current[index]}
                         >
                             <div
@@ -131,11 +132,58 @@ export default function App() {
                                     <h3>{movie.title}</h3>
                                     <div className={styles.info}>
                                         <p>{movie.year}</p>
-                                        <span>|</span>
-                                        <p>{movie.runtime}</p>
-                                        <span>|</span>
+                                        <div
+                                            style={{
+                                                // fontSize: "2rem",
+                                                // fontWeight: "1000",
+                                                width: "7px",
+                                                height: "7px",
+                                                borderRadius: "50%",
+                                                backgroundColor: "yellow",
+                                            }}
+                                        >
+                                            {/* <b>{`${"\u00B7"}`}</b> */}
+                                        </div>
+                                        <p>
+                                            {Math.trunc(+movie.runtime / 60)} hr{" "}
+                                            {+movie.runtime -
+                                                60 *
+                                                    Math.trunc(
+                                                        +movie.runtime / 60
+                                                    )}{" "}
+                                            min
+                                        </p>
+                                        <div
+                                            style={{
+                                                // fontSize: "2rem",
+                                                // fontWeight: "1000",
+                                                width: "7px",
+                                                height: "7px",
+                                                borderRadius: "50%",
+                                                backgroundColor: "yellow",
+                                            }}
+                                        >
+                                            {/* <b>{`${"\u00B7"}`}</b> */}
+                                        </div>
                                         <p>{movie.genres[0]}</p>
                                     </div>
+                                    <div className={styles.plot}>
+                                        {movie.plot}
+                                    </div>
+                                    <button
+                                        onClick={(_event) => {
+                                            navigate(
+                                                // `/movie/${event.currentTarget.dataset.movieId}`
+                                                `/movie/${movie.id}`
+                                            );
+                                            // console.log(
+                                            //     event.currentTarget.dataset.movieId
+                                            // );
+                                        }}
+                                        className={styles.button}
+                                    >
+                                        Visit
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -25,13 +25,13 @@ const MovieItem = ({ movie }: { movie: MovieItemType }) => {
             ></img>
             <div className={styles.details}>
                 <h3>{movie.title}</h3>
-                <div className={styles.info}>
+                {/* <div className={styles.info}>
                     <p>{movie.year}</p>
                     <span>|</span>
                     <p>{movie.runtime}</p>
                     <span>|</span>
                     <p>{movie.genres[0]}</p>
-                </div>
+                </div> */}
             </div>
         </article>
     );

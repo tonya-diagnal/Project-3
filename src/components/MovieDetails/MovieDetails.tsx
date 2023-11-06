@@ -66,9 +66,18 @@ const MovieDetails = () => {
                                     <div>
                                         <p>{movie.year}</p>
                                     </div>
-                                    <p>
-                                        <strong>|</strong>
-                                    </p>
+                                    <div
+                                        style={{
+                                            // fontSize: "2rem",
+                                            // fontWeight: "1000",
+                                            width: "7px",
+                                            height: "7px",
+                                            borderRadius: "50%",
+                                            backgroundColor: "yellow",
+                                        }}
+                                    >
+                                        {/* <b>{`${"\u00B7"}`}</b> */}
+                                    </div>
                                     <div>
                                         <p>
                                             {Math.trunc(+movie.runtime / 60)} hr{" "}
@@ -82,15 +91,55 @@ const MovieDetails = () => {
                                     </div>
                                 </div>
                                 <div className={classes.info}>
-                                    <div
-                                        className={classes.trailer}
-                                        onClick={trailerClickHandler}
-                                    >
-                                        <span>Trailer</span>
-                                        <FaPlay />
-                                    </div>
-                                    <div className={classes.genres}>
-                                        <p>{movie.genres.join(" | ")}</p>
+                                    <div className={classes.genreContainer}>
+                                        <h3>Genres</h3>
+                                        <div className={classes.genres}>
+                                            {movie.genres.map(
+                                                (value, index) => {
+                                                    {
+                                                        if (
+                                                            index ===
+                                                            movie.genres
+                                                                .length -
+                                                                1
+                                                        )
+                                                            return (
+                                                                <div
+                                                                    className={
+                                                                        classes.genre
+                                                                    }
+                                                                >
+                                                                    {value}
+                                                                </div>
+                                                            );
+                                                    }
+                                                    return (
+                                                        <div
+                                                            className={
+                                                                classes.genre
+                                                            }
+                                                        >
+                                                            {value}
+
+                                                            <div
+                                                                style={{
+                                                                    // fontSize: "2rem",
+                                                                    // fontWeight: "1000",
+                                                                    width: "6px",
+                                                                    height: "6px",
+                                                                    borderRadius:
+                                                                        "50%",
+                                                                    backgroundColor:
+                                                                        "yellow",
+                                                                }}
+                                                            ></div>
+                                                        </div>
+                                                    );
+                                                }
+                                            )}
+                                        </div>
+                                        {/* <p>{movie.genres.join(" \u00B7 ")}</p> */}
+                                        {/* {["yo ",<b>hai </b>]} */}
                                     </div>
                                     <div className={classes.director}>
                                         <h3>Director</h3>
@@ -103,6 +152,13 @@ const MovieDetails = () => {
                                     <div className={classes.plot}>
                                         <h3 className={classes.plot}>Plot</h3>
                                         <p> {movie.plot}</p>
+                                    </div>
+                                    <div
+                                        className={classes.trailer}
+                                        onClick={trailerClickHandler}
+                                    >
+                                        <span>Trailer</span>
+                                        <FaPlay />
                                     </div>
                                 </div>
                             </div>

@@ -17,6 +17,9 @@
 .firebaserc
 firebase.json
 
+# netlify routing
+/public/_redirects
+
 # misc
 .DS_Store
 .env.local

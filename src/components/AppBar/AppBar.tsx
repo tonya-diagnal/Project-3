@@ -39,7 +39,11 @@ const AppBar = () => {
     };
 
     const backButtonHandler = () => {
-        navigate(-1);
+        if (location.pathname == "/login") {
+            navigate("/");
+        } else {
+            navigate(-1);
+        }
     };
 
     const mobileSearchBarHandler = (
@@ -100,8 +104,10 @@ const AppBar = () => {
                             handleProfileOpen={profileClickHandler}
                         />
                     </div>
-                    {(location.pathname.includes("/movie/") ||
-                        location.pathname.includes("/trailer")) && (
+                    {
+                        // (
+                        //     location.pathname.includes("/movie/") ||
+                        //     location.pathname.includes("/trailer"))&&
                         <div
                             className={classes.back}
                             onClick={backButtonHandler}
@@ -109,7 +115,7 @@ const AppBar = () => {
                             <BiArrowBack size={20} />
                             <span>Back</span>
                         </div>
-                    )}
+                    }
                 </div>
                 {uiCtx.showMobileSearchBar && location.pathname === "/" && (
                     <div className={classes.mobileSearchBar}>

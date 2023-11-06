@@ -36,7 +36,8 @@ const ProfileButton = ({
     const logoutClickHandler = () => {
         handleProfileOpen(false);
         dispatch(signOutUser());
-        navigate('/');
+        alert("Successfully signed out");
+        navigate("/login");
     };
 
     let menu = [

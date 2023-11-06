@@ -8,8 +8,8 @@ import LoginPage from "./pages/Login/LoginPage";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signInUser } from "./store/user/userSlice";
-import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
-// import ProtectedRoute2 from "./pages/ProtectedRoute2/ProtectedRoute2";
+// import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute2 from "./pages/ProtectedRoute2/ProtectedRoute2";
 // import "./css-normalize/modern-normalize.css";
 
 const router = createBrowserRouter([
@@ -22,17 +22,17 @@ const router = createBrowserRouter([
             {
                 path: "/trailer",
                 element: (
-                    <ProtectedRoute>
+                    <ProtectedRoute2>
                         <MovieTrailerPage />
-                    </ProtectedRoute>
+                    </ProtectedRoute2>
                 ),
             },
             {
                 path: "movie/:movieId",
                 element: (
-                    <ProtectedRoute>
+                    <ProtectedRoute2>
                         <MovieDetailsPage />
-                    </ProtectedRoute>
+                    </ProtectedRoute2>
                 ),
             },
             {

@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
+type userData = { email: string; password: string };
+
 type userSliceState = {
     isLoggedIn: boolean;
-    user: { email: string; password: string };
+    user: userData;
 };
 
 const initialState: userSliceState = {
     isLoggedIn: false,
     user: { email: "", password: "" },
 };
-
-type userData = { email: string; password: string };
 
 const userSlice = createSlice({
     name: "user",
